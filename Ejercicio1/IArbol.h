@@ -1,8 +1,19 @@
-//
-// Created by gonza on 10/04/2026.
-//
+#pragma once
 
-#ifndef PRACTICA5_IARBOL_H
-#define PRACTICA5_IARBOL_H
+#include <string>
+#include "Producto.h"
 
-#endif //PRACTICA5_IARBOL_H
+class IArbol {
+public:
+    virtual ~IArbol() = default;
+
+    virtual void insertarNodoABBIter(const Producto& producto) = 0;
+
+    virtual void recorrerInOrder() const = 0;
+
+    virtual bool estaVacio() const = 0;
+
+    virtual int calcularNivelProductoITER(const std::string& codigo) const = 0;
+
+    virtual std::shared_ptr<IArbol> crearEspejoABB_Rec() const = 0;
+};
