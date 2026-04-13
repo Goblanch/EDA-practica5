@@ -4,15 +4,15 @@
 
 Arbol::Arbol() : raiz(nullptr) {}
 
-std::shared_ptr<NodoArbol<Producto> > Arbol::getRaiz() const {
+std::shared_ptr<NodoArbol<Producto>> Arbol::getRaiz() const {
     return raiz;
 }
 
-void Arbol::setRaiz(const std::shared_ptr<NodoArbol<Producto> > &nodo) {
+void Arbol::setRaiz(const std::shared_ptr<NodoArbol<Producto>>& nodo) {
     raiz = nodo;
 }
 
-void Arbol::insertarNodoABBIter(const Producto &producto) {
+void Arbol::insertarNodoABBIter(const Producto& producto) {
     auto nuevo = std::make_shared<NodoArbol<Producto>>(producto);
 
     if (estaVacio()) {
@@ -43,14 +43,14 @@ void Arbol::insertarNodoABBIter(const Producto &producto) {
 
 void Arbol::recorrerInOrder() const {
     if (estaVacio()) {
-        std:: cout << "[ERROR] El árbol está vacío. No hay contenido que mostrar.\n";
+        std::cout << "[ERROR] El arbol esta vacio. No hay contenido que mostrar.\n";
         return;
     }
 
     std::cout << std::left
-              << std::setw(14) << "Código"
+              << std::setw(14) << "Codigo"
               << std::setw(28) << "Nombre"
-              << std::setw(16) << "Categoría"
+              << std::setw(16) << "Categoria"
               << std::setw(10) << "Precio"
               << std::setw(8)  << "Stock"
               << "\n";
@@ -63,7 +63,7 @@ bool Arbol::estaVacio() const {
     return raiz == nullptr;
 }
 
-int Arbol::calcularNivelProductoITER(const std::string &codigo) const {
+int Arbol::calcularNivelProductoITER(const std::string& codigo) const {
     if (estaVacio()) return -1;
 
     std::shared_ptr<NodoArbol<Producto>> actual = raiz;
@@ -73,12 +73,11 @@ int Arbol::calcularNivelProductoITER(const std::string &codigo) const {
         const std::string& codigoActual = actual->getData().getCodigoProducto();
         if (codigo == codigoActual) {
             return nivel;
-        }else if (codigo < codigoActual) {
+        } else if (codigo < codigoActual) {
             actual = actual->getIzq();
-        }else {
+        } else {
             actual = actual->getDer();
         }
-
         ++nivel;
     }
 
@@ -104,6 +103,8 @@ void Arbol::recorrerInOrdenRec(const std::shared_ptr<NodoArbol<Producto>>& nodo)
               << std::setw(10) << nodo->getData().getPrecioUnitario()
               << std::setw(8)  << nodo->getData().getStock()
               << "\n";
+
+    recorrerInOrdenRec(nodo->getDer());  // <- visita subárbol derecho
 }
 
 std::shared_ptr<NodoArbol<Producto>> Arbol::copiarEspejoNodoRec(std::shared_ptr<NodoArbol<Producto>> origen) {

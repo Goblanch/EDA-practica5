@@ -10,7 +10,7 @@ private:
     std::shared_ptr<NodoArbol<T>> der_;
 
 public:
-    NodoArbol(cont T& dato) : data(dato), izq_(nullptr), der_(nullptr) {}
+    NodoArbol(const T& dato) : data(dato), izq_(nullptr), der_(nullptr) {}
 
     const T& getData() const { return data; }
     std::shared_ptr<NodoArbol<T>> getIzq() { return izq_; }

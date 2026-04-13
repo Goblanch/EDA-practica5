@@ -1,13 +1,21 @@
-//
-// Created by gonza on 10/04/2026.
-//
-
-#ifndef PRACTICA5_GESTORINVENTARIO_H
-#define PRACTICA5_GESTORINVENTARIO_H
-
+#pragma once
+#include <memory>
+#include <vector>
+#include "IArbol.h"
+#include "Producto.h"
 
 class GestorInventario {
+public:
+    GestorInventario(std::shared_ptr<IArbol> arbol);
+
+    void crearInventarioABB(const std::vector<Producto>& productos);
+
+    void mostrarInventario() const;
+
+    void consultarNivel(const std::string& codigo) const;
+
+    void mostrarEspejo() const;
+
+private:
+    std::shared_ptr<IArbol> arbol_;
 };
-
-
-#endif //PRACTICA5_GESTORINVENTARIO_H
