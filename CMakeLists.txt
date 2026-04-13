@@ -15,7 +15,6 @@ add_executable(${PROJECT_NAME}
         Ejercicio1/Producto.h
         Ejercicio1/Producto.cpp
         Ejercicio1/Nodo.h
-        Ejercicio1/Nodo.cpp
         Ejercicio1/IArbol.h
         Ejercicio1/Arbol.h
         Ejercicio1/Arbol.cpp
