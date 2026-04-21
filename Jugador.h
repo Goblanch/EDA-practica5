@@ -33,6 +33,7 @@ public:
     double getPuntuacion(){ return puntuacion_previa; }
     std::string getId(){ return id; }
     std::string getNickname(){ return nickname; }
+    std::string getEquipo() { return equipo; }
 
     void setPuntuacion(double punt)
     {
