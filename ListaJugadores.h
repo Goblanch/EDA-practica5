@@ -61,7 +61,7 @@ public:
         }
     }
 
-    int contarJugadores() {
+    int contarJugadores() const {
 
         int contador = 0;
         auto auxiliar = cabeza;
@@ -86,7 +86,7 @@ public:
         return contador;
     }
 
-    bool estaVacia() {
+    bool estaVacia() const{
         return cabeza == nullptr;
     }
 };
