@@ -1,13 +1,22 @@
-//
-// Created by gonza on 21/04/2026.
-//
+#pragma once
 
-#ifndef PRACTICA5_GESTORTORNEO_H
-#define PRACTICA5_GESTORTORNEO_H
-
+#include "Pila.h"
+#include "ListaJugadores.h"
+#include "Jugador.h"
 
 class GestorTorneo {
+private:
+    Pila<Jugador> inscripciones;
+    ListaJugadores ranking;
+
+public:
+    GestorTorneo() = default;
+
+    void agregarInscripcion(Jugador& jug);
+
+    void crearRegistroOrdenado();
+
+    void mostrarRanking() const;
+
+    double calcularPorcentajeBaneados() const;
 };
-
-
-#endif //PRACTICA5_GESTORTORNEO_H
